@@ -5,5 +5,10 @@ Rails.application.routes.draw do
     get "/memes/:id" => "memes#show"
     patch "/memes/:id" => "memes#update"
     delete "/memes/:id" => "memes#destroy"
+
+
+    post "/users" => "users#create"
+    post "/sessions" => "sessions#create"
+
   end
 end
