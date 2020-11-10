@@ -5,3 +5,8 @@
 #
   # movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Meme.create!([
+  {toptext: "Test meme", bottomtext: "I hope it works!", user_id: 1, image_url: "test image"},
+  
+])
