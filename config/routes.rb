@@ -9,7 +9,9 @@ Rails.application.routes.draw do
     post "/users" => "users#create"
     get "/users/:id" => "users#show"
     patch "/users/:id" => "users#update"
+    
     post "/sessions" => "sessions#create"
+    get "/logged_in" => 'sessions#is_logged_in'
 
     
     # delete "/users/:id" => "users#destroy"
