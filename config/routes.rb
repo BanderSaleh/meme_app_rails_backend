@@ -6,14 +6,16 @@ Rails.application.routes.draw do
     patch "/memes/:id" => "memes#update"
     delete "/memes/:id" => "memes#destroy"
 
-    post "/users" => "users#create"
+    post "/signup" => "users#create"
+    get "/users/index" => "users#index"
     get "/users/:id" => "users#show"
-    patch "/users/:id" => "users#update"
+    # patch "/users/:id" => "users#update"
     
-    post "/sessions" => "sessions#create"
-    get "/logged_in" => 'sessions#is_logged_in'
+    post "/login" => "sessions#create"
+    delete "/logout" => "sessions#destroy"
+    get "/account" => "application#set_current_user"
 
-    
-    # delete "/users/:id" => "users#destroy"
+    # resources :users, only: [:create, :show, :index]
+
   end
 end
