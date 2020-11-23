@@ -66,13 +66,12 @@ class Api::SessionsController < ApplicationController
   #   @current_user ||= User.find(session[:user_id]) if session[:user_id]
   # end
   
-  # def destroy
-  #   logout!
-  #   render json: {
-  #     status: 200,
-  #     logged_out: true
-  #   }
-  # end
+  def destroy
+    render json: {
+      status: 200,
+      logged_out: true
+    }
+  end
 
 
 

@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     
     post "/login" => "sessions#create"
     delete "/logout" => "sessions#destroy"
-    get "/account" => "application#set_current_user"
+    get "/account" => "users#UserAccountPage"
 
     # resources :users, only: [:create, :show, :index]
 

@@ -2,8 +2,10 @@ class Api::MemesController < ApplicationController
   before_action :authenticate_user, only: [:create, :update, :destroy]
   
   def index
-    @memes = Meme.order(:id => :asc)
-    render "index.json.jb"
+    if current_user
+      @memes = Meme.order(:id => :asc)
+      render "index.json.jb"
+    end
   end
 
   def create

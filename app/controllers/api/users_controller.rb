@@ -1,8 +1,10 @@
 class Api::UsersController < ApplicationController
 
   def index
-    @users = User.order(:id => :asc)
-      render "users.json.jb"
+    if current_user
+      @users = User.order(:id => :asc)
+        render "users.json.jb"
+    end
   end
 
   def show
@@ -23,6 +25,14 @@ class Api::UsersController < ApplicationController
       render json: { message: "User created successfully" }, status: :created
     else
       render json: { errors: @user.errors.full_messages }, status: :bad_request
+    end
+  end
+
+
+  def UserAccountPage
+    if current_user
+      @user = current_user
+        render "user.json.jb"
     end
   end
 
