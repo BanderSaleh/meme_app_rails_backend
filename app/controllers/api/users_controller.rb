@@ -1,8 +1,7 @@
 class Api::UsersController < ApplicationController
-  skip_before_action :authenticate
 
   def index
-    @users = User.all
+    @users = User.order(:id => :asc)
       render "users.json.jb"
   end
 

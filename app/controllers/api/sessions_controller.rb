@@ -1,5 +1,4 @@
 class Api::SessionsController < ApplicationController
-  skip_before_action :authenticate
 
   def create
     user = User.find_by(email: params[:email])
@@ -13,6 +12,7 @@ class Api::SessionsController < ApplicationController
         Rails.application.credentials.fetch(:secret_key_base), # the secret key
         "HS256" # the encryption algorithm
       )
+      p jwt
       render json: { jwt: jwt, first_name: user.first_name, last_name: user.last_name, username: user.username, email: user.email, user_id: user.id }, status: :created
     else
       render json: {}, status: :unauthorized
