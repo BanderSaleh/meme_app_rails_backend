@@ -7,13 +7,14 @@ Rails.application.routes.draw do
     delete "/memes/:id" => "memes#destroy"
 
     post "/users" => "users#create"
-    # get "/users/index" => "users#index"
     get "/users/:id" => "users#show"
     patch "/users/:id" => "users#update"
-    
     post "/sessions" => "sessions#create"
+    
     delete "/logout" => "sessions#destroy"
-    get "/account" => "users#UserAccountPage"
+
+    # same thing as useer show page
+    # get "/account" => "users#UserAccountPage"
 
     # resources :users, only: [:create, :show, :index]
 
