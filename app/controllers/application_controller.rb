@@ -27,8 +27,8 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def index
-    render :file => "public/index.html"
-  end
+  # def index
+  #   render :file => "public/index.html"
+  # end
 
 end

@@ -1,15 +1,16 @@
 class Api::UsersController < ApplicationController
 
-  def index
-    if current_user
-      @users = User.order(:id => :asc)
-        render "users.json.jb"
-    end
-  end
+  # Index not needed, this is taken care of by the show 
+  # def index
+  #   if current_user
+  #     @users = User.order(:id => :asc)
+  #       render "users.json.jb"
+  #   end
+  # end
 
   def show
-    @user = User.find_by(id: params[:id])
-    render "user.json.jb"
+    @user = User.find_by(id: current_user.id)
+    render "show.json.jb"
   end
 
   def create
@@ -28,15 +29,38 @@ class Api::UsersController < ApplicationController
     end
   end
 
+# not needed, this is taken care of by the show page
+  # def UserAccountPage
+  #   if current_user
+  #     @user = current_user
+  #       render "user.json.jb"
+  #   end
+  # end
 
-  def UserAccountPage
-    if current_user
-      @user = current_user
-        render "user.json.jb"
+  def update
+    @user = User.find_by(id: current_user.id)
+  
+    @user.first_name = params[:first_name] || @user.first_name
+    @user.last_name = params[:last_name] || @user.last_name
+    @user.username = params[:username] || @user.username
+    @user.email = params[:email] || @user.email
+    @user.password = params[:password] ||@user.password
+    @user.password_confirmation = params[:password_confirmation] || @user.password_confirmation  
+
+    if @user.save
+      render "show.json.jb"
+    else 
+      render json: { errors: @user.errors.full_messages}
     end
+
   end
 
+  def destroy 
+    @user = User.find_by(id: current_user.id)
+    @user.destroy
+    render json: {message: "Your profile has been deleted."}
 
+  end
 
 
 end
