@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     
     delete "/logout" => "sessions#destroy"
 
-    # same thing as useer show page
+    # same thing as user show page
     # get "/account" => "users#UserAccountPage"
 
     # resources :users, only: [:create, :show, :index]
