@@ -34,16 +34,12 @@ class Api::MemesController < ApplicationController
       @meme.toptext = params[:toptext] || @meme.toptext
       @meme.bottomtext = params[:bottomtext] || @meme.bottomtext
       @meme.image_url = params[:image_url] || @meme.image_url
-
-      if @meme.save
-        render "show.json.jb"
-      else 
-        render json: {errors: @meme.errors.full_messages}, status: :unprocessable_entity
-      end 
+      p @meme
+      @meme.save!
+      render "show.json.jb"
     else 
-      render json: {message: "This isn't your meme to edit!"}
+      render json: { message: "This Meme did not update" }
     end 
-
   end
 
   def destroy
