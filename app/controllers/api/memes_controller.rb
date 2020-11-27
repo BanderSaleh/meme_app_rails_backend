@@ -15,6 +15,7 @@ class Api::MemesController < ApplicationController
       user_id: current_user.id,
       image_url: params[:image_url],
       complete_meme: params[:complete_meme],
+      complete_meme_jpg: params[:complete_meme_jpg],
     )
     if @meme.save
       render "show.json.jb"
@@ -36,6 +37,7 @@ class Api::MemesController < ApplicationController
       @meme.bottomtext = params[:bottomtext] || @meme.bottomtext
       @meme.image_url = params[:image_url] || @meme.image_url
       @meme.complete_meme = params[:complete_meme] || @meme.complete_meme
+      @meme.complete_meme_jpg = params[:complete_meme_jpg] || @meme.complete_meme_jpg
       p @meme
       @meme.save!
       render "show.json.jb"
