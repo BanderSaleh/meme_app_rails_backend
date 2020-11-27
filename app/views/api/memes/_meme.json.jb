@@ -4,6 +4,7 @@
     bottomtext: meme.bottomtext,
     image_url: meme.image_url,  
     complete_meme: meme.complete_meme,
+    complete_meme_jpg: meme.complete_meme_jpg,
     user_id: meme.user_id,
     usernname: meme.user.username
   }
