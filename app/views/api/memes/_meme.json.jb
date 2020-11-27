@@ -2,8 +2,9 @@
     id: meme.id,
     toptext: meme.toptext,
     bottomtext: meme.bottomtext,
+    image_url: meme.image_url,  
+    complete_meme: meme.complete_meme,
     user_id: meme.user_id,
-    usernname: meme.user.username,
-    image_url: meme.image_url  
+    usernname: meme.user.username
   }
   
