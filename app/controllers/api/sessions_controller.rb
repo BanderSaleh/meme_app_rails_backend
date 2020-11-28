@@ -18,52 +18,8 @@ class Api::SessionsController < ApplicationController
     end
   end
 
-  # def account
-  #   return current_user
-  # end
-
   
-
-  # def find_current_user
-  #   (1..Kernel.caller.length).each do |n|
-  #     RubyVM::DebugInspector.open do |i|
-  #       current_user = eval "current_user rescue nil", i.frame_binding(n)
-  #       return current_user unless current_user.nil?
-  #     end
-  #   end
-  #   return nil
-  # end
-
-  
-
-  # def account
-  #   myAccount = @user
-  #   render "user.json.jb"
-  # end
-
-  # def account
-  #   @user = User.find_by(id: params[:id])
-  #   render "user.json.jb"
-  # end
-
-  # def account
-  #   if @user = current_user
-  #     render "user.json.jb"
-  #   else
-  #     render json: {
-  #       logged_in: false,
-  #       message: 'no such user'
-  #     }
-  #   end
-  # end
-
-  # def account
-  #   @current_user ||= User.find(session[:user_id]) if session[:user_id]
-  # end
-
-  # def account
-  #   @current_user ||= User.find(session[:user_id]) if session[:user_id]
-  # end
+  # not sure destroy is needed
   
   def destroy
     render json: {
