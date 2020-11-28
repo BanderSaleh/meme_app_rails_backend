@@ -1,12 +1,8 @@
 class Api::UsersController < ApplicationController
 
-  # Index not needed, this is taken care of by the show 
-  # def index
-  #   if current_user
-  #     @users = User.order(:id => :asc)
-  #       render "users.json.jb"
-  #   end
-  # end
+  before_action :authenticate_user, except: [:create]
+
+ 
 
   def show
     @user = User.find_by(id: current_user.id)
@@ -29,13 +25,6 @@ class Api::UsersController < ApplicationController
     end
   end
 
-# not needed, this is taken care of by the show page
-  # def UserAccountPage
-  #   if current_user
-  #     @user = current_user
-  #       render "user.json.jb"
-  #   end
-  # end
 
   def update
     @user = User.find_by(id: current_user.id)
