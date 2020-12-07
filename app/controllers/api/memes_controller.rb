@@ -16,7 +16,8 @@ class Api::MemesController < ApplicationController
     @meme = Meme.new(
       toptext: params[:toptext],
       bottomtext: params[:bottomtext],
-      user_id: current_user.id,
+      user_id: params[:user_id],
+      # user_id: current_user.id,
       image_url: params[:image_url],
       complete_meme: params[:complete_meme],
       complete_meme_jpg: params[:complete_meme_jpg],
