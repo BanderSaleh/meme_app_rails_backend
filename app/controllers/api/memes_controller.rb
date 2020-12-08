@@ -46,8 +46,8 @@ class Api::MemesController < ApplicationController
       p @meme
       @meme.save!
       render "show.json.jb"
-    else 
-      render json: { message: "This Meme did not update" }
+    # else 
+      # render json: { message: "This Meme did not update" }
     end 
   end
 
