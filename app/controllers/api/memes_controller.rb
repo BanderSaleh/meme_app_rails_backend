@@ -37,7 +37,7 @@ class Api::MemesController < ApplicationController
   def update
     @meme = Meme.find_by(id: params[:id])
 
-    if @meme.user_id == current_user.id
+    if @meme.user_id
       @meme.toptext = params[:toptext] || @meme.toptext
       @meme.bottomtext = params[:bottomtext] || @meme.bottomtext
       @meme.image_url = params[:image_url] || @meme.image_url

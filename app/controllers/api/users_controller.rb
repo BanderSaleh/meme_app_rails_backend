@@ -9,8 +9,8 @@ class Api::UsersController < ApplicationController
   # end
 
   def show
-    @user = User.find_by(id: current_user.id)
-    render "show.json.jb"
+    @user = User.find_by(id: params[:id])
+    render "showu.json.jb"
   end
 
   def create
@@ -38,21 +38,17 @@ class Api::UsersController < ApplicationController
   # end
 
   def update
-    @user = User.find_by(id: current_user.id)
-  
-    @user.first_name = params[:first_name] || @user.first_name
-    @user.last_name = params[:last_name] || @user.last_name
-    @user.username = params[:username] || @user.username
-    @user.email = params[:email] || @user.email
-    @user.password = params[:password] ||@user.password
-    @user.password_confirmation = params[:password_confirmation] || @user.password_confirmation  
+    @user = User.find_by(id: params[:id])
 
-    if @user.save
-      render "show.json.jb"
-    else 
-      render json: { errors: @user.errors.full_messages}
+    if @user.id
+      @user.first_name = params[:first_name] || @user.first_name
+      @user.last_name = params[:last_name] || @user.last_name
+      @user.username = params[:username] || @user.username
+      @user.email = params[:email] || @user.email
+      p @user
+      @user.save!
+      render "showu.json.jb"
     end
-
   end
 
   def destroy 
